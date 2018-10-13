@@ -15,18 +15,15 @@ import javax.inject.Inject
  * Main data source for movies.
  */
 class MovieRepositoryImpl @Inject
-constructor(var service: TMDbService): MovieRepository {
+constructor(var service: TMDbService) : MovieRepository {
 
     @SuppressLint("CheckResult")
-    override fun getMovieList(): Single<List<Movie>> {
-
-        return service.getMovieList()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .flatMap { response: GetMovieListResponse ->
-                    Single.create<List<Movie>> { emitter ->
-                        emitter.onSuccess(response.results)
-                    }
+    override fun getMovieList(): Single<List<Movie>> = service.getMovieList()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .flatMap { response: GetMovieListResponse ->
+                Single.create<List<Movie>> { emitter ->
+                    emitter.onSuccess(response.results)
                 }
-    }
+            }
 }

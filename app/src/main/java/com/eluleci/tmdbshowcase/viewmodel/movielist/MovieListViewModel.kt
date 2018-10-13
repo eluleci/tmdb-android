@@ -1,17 +1,14 @@
 package com.eluleci.tmdbshowcase.viewmodel.movielist
 
 import android.annotation.SuppressLint
-import android.app.Application
-import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.MutableLiveData
+import android.arch.lifecycle.ViewModel
 
 import com.eluleci.tmdbshowcase.model.Movie
 import com.eluleci.tmdbshowcase.repository.MovieRepository
 
-import javax.inject.Inject
-
-class MovieListViewModel @Inject
-constructor(application: Application, val movieRepository: MovieRepository) : AndroidViewModel(application) {
+class MovieListViewModel
+constructor(val movieRepository: MovieRepository) : ViewModel() {
 
     /**
      * Movie list is a LiveData that is retrieved from MovieRepositoryImpl on initialisation.
