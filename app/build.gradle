@@ -19,6 +19,7 @@ android {
     buildTypes {
         debug {
             buildConfigField "String", "BASE_URL", '"https://api.themoviedb.org/3/"'
+            buildConfigField "String", "IMAGE_URL", '"http://image.tmdb.org/t/p/w500/"'
             buildConfigField "String", "API_KEY", '"968cca12b1a8492036b1e1e05af57e3f"'
         }
         release {
@@ -27,10 +28,11 @@ android {
 
             buildConfigField "String", "BASE_URL", '"https://api.themoviedb.org/3/"'
             buildConfigField "String", "API_KEY", '"968cca12b1a8492036b1e1e05af57e3f"'
+            buildConfigField "String", "IMAGE_URL", '"http://image.tmdb.org/t/p/w500/"'
         }
     }
-    dataBinding{
-        enabled=true
+    dataBinding {
+        enabled = true
     }
 }
 
@@ -44,6 +46,7 @@ dependencies {
     implementation "android.arch.lifecycle:extensions:1.1.1"
     implementation "android.arch.lifecycle:viewmodel:1.1.1"
 
+    implementation "com.squareup.picasso:picasso:$project.picasso_version"
     implementation "com.squareup.retrofit2:retrofit:$project.retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$project.retrofit_version"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$project.retrofit_version"

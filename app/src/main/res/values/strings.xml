@@ -3,4 +3,6 @@
 
     <string name="activity_movie_list_empty_message">No movie found</string>
     <string name="activity_movie_list_error_message">Fetching movies failed</string>
+
+    <string name="activity_movie_list_row_rating">Rating: </string>
 </resources>

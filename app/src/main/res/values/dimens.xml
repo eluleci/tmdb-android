@@ -6,6 +6,6 @@
     <dimen name="text_size_medium">20sp</dimen>
     <dimen name="text_size_small">16sp</dimen>
 
-    <dimen name="list_row_track_image_size">64dp</dimen>
-    <dimen name="activity_track_detail_cover_size">128dp</dimen>
+    <dimen name="list_row_movie_image_height">150dp</dimen>
+    <dimen name="list_row_movie_image_width">100dp</dimen>
 </resources>
