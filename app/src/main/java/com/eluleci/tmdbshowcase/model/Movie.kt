@@ -1,4 +1,4 @@
-package com.eluleci.tmdbshowcase.service.model
+package com.eluleci.tmdbshowcase.model
 
 import com.google.gson.annotations.SerializedName
 

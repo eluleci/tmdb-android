@@ -12,10 +12,33 @@
         <import type="android.view.View" />
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".view.ui.MovieListActivity">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:visibility="@{viewModel.isPending}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="@dimen/common_spacing"
+            android:text="@string/activity_movie_list_empty_message"
+            app:visibility="@{viewModel.movieList.isEmpty}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="@dimen/common_spacing"
+            android:text="@string/activity_movie_list_error_message"
+            android:textColor="@color/error"
+            app:visibility="@{viewModel.hasError}" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"
@@ -24,5 +47,5 @@
             app:layoutManager="android.support.v7.widget.LinearLayoutManager"
             app:movieList="@{viewModel.movieList}" />
 
-    </android.support.constraint.ConstraintLayout>
+    </RelativeLayout>
 </layout>

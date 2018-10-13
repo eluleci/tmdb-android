@@ -3,8 +3,8 @@ package com.eluleci.tmdbshowcase.di
 import android.app.Application
 
 import com.eluleci.tmdbshowcase.TMDbApp
-import com.eluleci.tmdbshowcase.service.repository.network.NetworkModule
-import com.eluleci.tmdbshowcase.service.repository.RepositoryModule
+import com.eluleci.tmdbshowcase.repository.network.NetworkModule
+import com.eluleci.tmdbshowcase.repository.RepositoryModule
 
 import javax.inject.Singleton
 

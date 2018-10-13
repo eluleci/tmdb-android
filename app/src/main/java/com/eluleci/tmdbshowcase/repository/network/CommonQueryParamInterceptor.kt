@@ -1,4 +1,4 @@
-package com.eluleci.tmdbshowcase.service.repository.network
+package com.eluleci.tmdbshowcase.repository.network
 
 import java.io.IOException
 import okhttp3.Interceptor

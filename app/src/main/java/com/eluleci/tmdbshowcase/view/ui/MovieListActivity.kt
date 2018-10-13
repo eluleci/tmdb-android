@@ -27,7 +27,7 @@ class MovieListActivity : DaggerAppCompatActivity() {
                 .setContentView(this, R.layout.activity_movie_list);
 
         // create view model from the factory
-        val vm = ViewModelProviders
+        val movieListViewModel = ViewModelProviders
                 .of(this@MovieListActivity, mMovieListViewModelFactory)
                 .get(MovieListViewModel::class.java)
 
@@ -35,7 +35,9 @@ class MovieListActivity : DaggerAppCompatActivity() {
         binding.apply {
             setLifecycleOwner(this@MovieListActivity)
             recyclerView.adapter = MovieListAdapter()
-            viewModel = vm
+            viewModel = movieListViewModel
         }
+
+        movieListViewModel.getMovieList()
     }
 }

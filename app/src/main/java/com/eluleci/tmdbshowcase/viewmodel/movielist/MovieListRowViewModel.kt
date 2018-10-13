@@ -1,6 +1,6 @@
 package com.eluleci.tmdbshowcase.viewmodel.movielist
 
-import com.eluleci.tmdbshowcase.service.model.Movie
+import com.eluleci.tmdbshowcase.model.Movie
 
 class MovieListRowViewModel {
     lateinit var title: String

@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.eluleci.tmdbshowcase.R
 import com.eluleci.tmdbshowcase.databinding.ListRowMovieBinding
-import com.eluleci.tmdbshowcase.service.model.Movie
+import com.eluleci.tmdbshowcase.model.Movie
 import com.eluleci.tmdbshowcase.viewmodel.movielist.MovieListRowViewModel
 
 /**

@@ -1,19 +1,39 @@
 package com.eluleci.tmdbshowcase.viewmodel.movielist
 
+import android.annotation.SuppressLint
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
-import android.arch.lifecycle.LiveData
+import android.arch.lifecycle.MutableLiveData
 
-import com.eluleci.tmdbshowcase.service.model.Movie
-import com.eluleci.tmdbshowcase.service.repository.MovieRepository
+import com.eluleci.tmdbshowcase.model.Movie
+import com.eluleci.tmdbshowcase.repository.MovieRepository
 
 import javax.inject.Inject
 
 class MovieListViewModel @Inject
-constructor(application: Application, movieRepository: MovieRepository) : AndroidViewModel(application) {
+constructor(application: Application, val movieRepository: MovieRepository) : AndroidViewModel(application) {
 
     /**
-     * Movie list is a LiveData that is retrieved from MovieRepository on initialisation.
+     * Movie list is a LiveData that is retrieved from MovieRepositoryImpl on initialisation.
      */
-    val movieList: LiveData<List<Movie>> = movieRepository.movieList
+    var movieList: MutableLiveData<List<Movie>> = MutableLiveData()
+    var isPending: MutableLiveData<Boolean> = MutableLiveData()
+    var hasError: MutableLiveData<Boolean> = MutableLiveData()
+
+    /**
+     * Gets movie list from the repository.
+     */
+    @SuppressLint("CheckResult")
+    fun getMovieList() {
+
+        isPending.value = true
+
+        movieRepository.getMovieList().subscribe({ list ->
+            isPending.value = false
+            movieList.value = list
+        }, {
+            isPending.value = false
+            hasError.value = true
+        })
+    }
 }

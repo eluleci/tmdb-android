@@ -44,9 +44,14 @@ dependencies {
     implementation "android.arch.lifecycle:extensions:1.1.1"
     implementation "android.arch.lifecycle:viewmodel:1.1.1"
 
-    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
-    implementation "com.squareup.retrofit2:converter-gson:2.4.0"
+    implementation "com.squareup.retrofit2:retrofit:$project.retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$project.retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$project.retrofit_version"
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjava_version"
+    implementation "io.reactivex.rxjava2:rxkotlin:$rootProject.rxkotlin_version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroid_version"
 
     implementation "com.google.dagger:dagger:$project.dagger_version"
     implementation "com.google.dagger:dagger-android:$project.dagger_version"
